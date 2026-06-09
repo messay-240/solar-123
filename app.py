@@ -607,10 +607,40 @@ with st.expander("🔋 Battery & Load"):
     net_metering = st.checkbox("Net Metering", value=True)
  
 with st.expander("⚙️ Advanced Physics Config"):
-    panel_w_adv = st.number_input("Unit Panel Power (W) [Advanced]", 2, 1000, int(p_eff * 2), 5)
+    # Get selected panel data from your panel_db
+    selected_panel = panel_db.get(selected_panel_name, None)
+
+    if selected_panel:
+        pmax = selected_panel["pmax"]   # Rated panel wattage
+    else:
+        pmax = 400  # Safe fallback default
+
+    panel_w_adv = st.number_input(
+        "Unit Panel Power (W) [Advanced]",
+        min_value=200,
+        max_value=1000,
+        value=pmax,   # ✅ use actual panel wattage
+        step=5
+    )
+
     system_age = st.slider("System Age (Years)", 0, 25, 1)
-    annual_degrad = st.number_input("Annual Degradation %", 0.1, 2.0, 0.5, 0.1)
-    soiling_adv = st.slider("Soiling % [Advanced]", 0.0, 20.0, 3.5, 0.5)
+
+    annual_degrad = st.number_input(
+        "Annual Degradation %",
+        min_value=0.1,
+        max_value=2.0,
+        value=0.5,
+        step=0.1
+    )
+
+    soiling_adv = st.slider(
+        "Soiling % [Advanced]",
+        min_value=0.0,
+        max_value=20.0,
+        value=3.5,
+        step=0.5
+    )
+
  
 with st.expander("🌤️ Environment"):
     sun_h = st.slider("Peak Sun Hours", 3.0, 8.5, float(avg_ghi), key="sun_h")
