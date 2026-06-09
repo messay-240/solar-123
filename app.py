@@ -497,12 +497,6 @@ with st.sidebar:
     wind_kmh_db, wind_zone = country_data[11], country_data[12]
  
     st.divider()
-    st.markdown("### 🔐 Live Weather Access")
-    password = st.text_input("Password", type="password", value="")
-    use_live_weather = st.checkbox("🌐 Live Weather + Map ON", value=False)
-    LIVE_PASSWORD = "solar2026"
- 
-    st.divider()
     st.markdown("### 🔌 Telemetry Mode")
     live_weather_toggle = st.toggle("Activate Live Satellite Telemetry", value=False,
                                     help="ON = Live GPS coords | OFF = Country DB profiles")
