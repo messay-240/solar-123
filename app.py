@@ -857,7 +857,7 @@ with tabs[11]:
         st.error(f"⚠️ WARNING: Tilt {tilt}° exceeds max {struct['tilt_max']}° for {wind_zone} zone!")
  
 # Tab 12: Protection
-with tabs[12]:
+with tabs[11]:
     st.markdown("<span class='info-label'>⚙️ PROTECTION SYSTEMS</span>", unsafe_allow_html=True)
     st.metric("Lightning Rod Height", f"{rod_height:.1f} m")
     st.metric("Protection Radius", f"{protection_radius} m")
@@ -868,7 +868,7 @@ with tabs[12]:
         st.error(f"⚠️ Wind load {wind_force:.1f} kN exceeds safe limit! Upgrade structure.")
  
 # Tab 13: Physics Engine (App 2 Advanced)
-with tabs[13]:
+with tabs[12]:
     st.markdown("<span class='info-label'>📡 ADVANCED PHYSICS ENGINE</span>", unsafe_allow_html=True)
  
     if live_weather_toggle:
@@ -924,7 +924,7 @@ with tabs[13]:
     st.dataframe(sim_data_df, use_container_width=True)
  
 # Tab 14: Storage Matrix
-with tabs[14]:
+with tabs[13]:
     st.markdown("<span class='info-label'>🔋 BATTERY STORAGE MATRIX</span>", unsafe_allow_html=True)
     b1, b2, b3 = st.columns(3)
     b1.metric("Total Storage", f"{b_cap:.2f} kWh")
@@ -940,7 +940,7 @@ with tabs[14]:
     st.dataframe(bat_compare_df, use_container_width=True)
  
 # Tab 15: Export
-with tabs[15]:
+with tabs[14]:
     st.markdown("<span class='info-label'>📤 EXPORT REPORT - CSV + PDF</span>", unsafe_allow_html=True)
     enable_export = st.checkbox("📄 Enable PDF Export", value=False)
  
