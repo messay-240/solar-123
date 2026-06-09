@@ -269,33 +269,219 @@ db = {
 }
  
 panel_db = {
-    "Jinko 545W Mono PERC": [21.5, 0.55, 0.28, -0.35, 49.8, 13.8, "Tier-1 Standard"],
-    "Trina 550W Mono PERC": [21.8, 0.58, 0.29, -0.36, 50.1, 13.9, "Tier-1 Standard"],
-    "LONGi 540W Hi-MO4": [21.2, 0.52, 0.27, -0.35, 49.5, 13.7, "Tier-1 Standard"],
-    "Canadian 545W CS3W": [21.6, 0.56, 0.28, -0.35, 49.9, 13.8, "Tier-1 Standard"],
-    "Jinko 580W TOPCon N-Type": [23.5, 0.65, 0.32, -0.30, 50.8, 14.5, "Tier-1 High Eff"],
-    "Trina 575W TOPCon": [23.8, 0.68, 0.33, -0.29, 51.0, 14.6, "Tier-1 High Eff"],
-    "LONGi 570W Hi-MO5": [23.2, 0.62, 0.31, -0.31, 50.5, 14.3, "Tier-1 High Eff"],
-    "JA Solar 575W DeepBlue 3.0": [23.6, 0.66, 0.32, -0.30, 50.9, 14.5, "Tier-1 High Eff"],
-    "Risen 590W Hyper-ion": [24.0, 0.70, 0.34, -0.29, 51.2, 14.7, "Tier-1 Premium"],
-    "Huansheng 610W HJT": [24.5, 0.75, 0.38, -0.25, 51.5, 15.0, "HJT Premium"],
-    "REC Alpha Pure 410W HJT": [24.2, 0.72, 0.37, -0.24, 51.3, 14.9, "HJT Premium"],
-    "Tongwei 600W TNC HJT": [24.8, 0.78, 0.39, -0.24, 51.8, 15.2, "HJT Premium"],
-    "Jinko 605W Bifacial TOPCon": [24.2, 0.68, 0.35, -0.29, 51.0, 14.6, "Bifacial Dual Glass"],
-    "Trina 600W Vertex Bifacial": [24.0, 0.65, 0.34, -0.29, 50.8, 14.5, "Bifacial Dual Glass"],
-    "Canadian 590W Bifacial": [23.6, 0.62, 0.33, -0.30, 50.5, 14.3, "Bifacial Dual Glass"],
-    "SunPower 415W Maxeon 6 IBC": [25.2, 0.85, 0.42, -0.22, 52.5, 12.8, "IBC Premium"],
-    "Maxeon 3 400W IBC": [24.8, 0.80, 0.40, -0.23, 52.0, 12.6, "IBC Premium"],
-    "Aiko 625W ABC IBC": [25.5, 0.88, 0.43, -0.21, 52.8, 13.0, "IBC Ultra Premium"],
-    "Oxford PV 550W Perovskite": [29.5, 1.20, 0.55, -0.20, 53.5, 12.5, "Future Tech"],
-    "LONGi 530W Silicon-Perovskite": [28.8, 1.15, 0.52, -0.21, 53.0, 12.4, "Future Tech"],
-    "First Solar 460W CdTe Thin Film": [18.5, 0.35, 0.22, -0.25, 48.5, 14.5, "Thin Film Low Cost"],
-    "Solar Frontier 170W CIGS": [17.8, 0.30, 0.20, -0.28, 47.5, 13.8, "CIGS Thin Film"],
-    "QCells 415W Q.PEAK DUO": [21.0, 0.50, 0.26, -0.35, 49.2, 13.5, "QCells Standard"],
-    "QCells 480W Q.TRON": [22.8, 0.60, 0.30, -0.32, 50.3, 14.2, "QCells Premium"],
-    "JA 545W DeepBlue 3.0 Mono": [21.4, 0.54, 0.28, -0.35, 49.7, 13.7, "JA Standard"],
-    "Risen 550W RSM144": [21.7, 0.57, 0.28, -0.35, 49.9, 13.8, "Risen Standard"],
-}
+    "Jinko 545W Mono PERC": {
+        "efficiency": 21.5,
+        "voc": 49.8,
+        "isc": 13.8,
+        "pmax": 545,
+        "temp_coeff_voc": -0.35,
+        "fill_factor": 0.28,
+        "category": "Tier-1 Standard"
+    },
+    "Trina 550W Mono PERC": {
+        "efficiency": 21.8,
+        "voc": 50.1,
+        "isc": 13.9,
+        "pmax": 550,
+        "temp_coeff_voc": -0.36,
+        "fill_factor": 0.29,
+        "category": "Tier-1 Standard"
+    },
+    "LONGi 540W Hi-MO4": {
+        "efficiency": 21.2,
+        "voc": 49.5,
+        "isc": 13.7,
+        "pmax": 540,
+        "temp_coeff_voc": -0.35,
+        "fill_factor": 0.27,
+        "category": "Tier-1 Standard"
+    },
+    "Canadian 545W CS3W": {
+        "efficiency": 21.6,
+        "voc": 49.9,
+        "isc": 13.8,
+        "pmax": 545,
+        "temp_coeff_voc": -0.35,
+        "fill_factor": 0.28,
+        "category": "Tier-1 Standard"
+    },
+    "Jinko 580W TOPCon N-Type": {
+        "efficiency": 23.5,
+        "voc": 50.8,
+        "isc": 14.5,
+        "pmax": 580,
+        "temp_coeff_voc": -0.30,
+        "fill_factor": 0.32,
+        "category": "Tier-1 High Eff"
+    },
+    "Trina 575W TOPCon": {
+        "efficiency": 23.8,
+        "voc": 51.0,
+        "isc": 14.6,
+        "pmax": 575,
+        "temp_coeff_voc": -0.29,
+        "fill_factor": 0.33,
+        "category": "Tier-1 High Eff"
+    },
+    "LONGi 570W Hi-MO5": {
+        "efficiency": 23.2,
+        "voc": 50.5,
+        "isc": 14.3,
+        "pmax": 570,
+        "temp_coeff_voc": -0.31,
+        "fill_factor": 0.31,
+        "category": "Tier-1 High Eff"
+    },
+    "JA Solar 575W DeepBlue 3.0": {
+        "efficiency": 23.6,
+        "voc": 50.9,
+        "isc": 14.5,
+        "pmax": 575,
+        "temp_coeff_voc": -0.30,
+        "fill_factor": 0.32,
+        "category": "Tier-1 High Eff"
+    },
+    "Risen 590W Hyper-ion": {
+        "efficiency": 24.0,
+        "voc": 51.2,
+        "isc": 14.7,
+        "pmax": 590,
+        "temp_coeff_voc": -0.29,
+        "fill_factor": 0.34,
+        "category": "Tier-1 Premium"
+    },
+    "Huansheng 610W HJT": {
+        "efficiency": 24.5,
+        "voc": 51.5,
+        "isc": 15.0,
+        "pmax": 610,
+        "temp_coeff_voc": -0.25,
+        "fill_factor": 0.38,
+        "category": "HJT Premium"
+    },
+    "REC Alpha Pure 410W HJT": {
+        "efficiency": 24.2,
+        "voc": 51.3,
+        "isc": 14.9,
+        "pmax": 410,
+        "temp_coeff_voc": -0.24,
+        "fill_factor": 0.37,
+        "category": "HJT Premium"
+    },
+    "Tongwei 600W TNC HJT": {
+        "efficiency": 24.8,
+        "voc": 51.8,
+        "isc": 15.2,
+        "pmax": 600,
+        "temp_coeff_voc": -0.24,
+        "fill_factor": 0.39,
+        "category": "HJT Premium"
+    },
+    "Jinko 605W Bifacial TOPCon": {
+        "efficiency": 24.2,
+        "voc": 51.0,
+        "isc": 14.6,
+        "pmax": 605,
+        "temp_coeff_voc": -0.29,
+        "fill_factor": 0.35,
+        "category": "Bifacial Dual Glass"
+    },
+    "Trina 600W Vertex Bifacial": {
+        "efficiency": 24.0,
+        "voc": 50.8,
+        "isc": 14.5,
+        "pmax": 600,
+        "temp_coeff_voc": -0.29,
+        "fill_factor": 0.34,
+        "category": "Bifacial Dual Glass"
+    },
+    "Canadian 590W Bifacial": {
+        "efficiency": 23.6,
+        "voc": 50.5,
+        "isc": 14.3,
+        "pmax": 590,
+        "temp_coeff_voc": -0.30,
+        "fill_factor": 0.33,
+        "category": "Bifacial Dual Glass"
+    },
+    "SunPower 415W Maxeon 6 IBC": {
+        "efficiency": 25.2,
+        "voc": 52.5,
+        "isc": 12.8,
+        "pmax": 415,
+        "temp_coeff_voc": -0.22,
+        "fill_factor": 0.42,
+        "category": "IBC Premium"
+    },
+    "Maxeon 3 400W IBC": {
+        "efficiency": 24.8,
+        "voc": 52.0,
+        "isc": 12.6,
+        "pmax": 400,
+        "temp_coeff_voc": -0.23,
+        "fill_factor": 0.40,
+        "category": "IBC Premium"
+    },
+    "Aiko 625W ABC IBC": {
+        "efficiency": 25.5,
+        "voc": 52.8,
+        "isc": 13.0,
+        "pmax": 625,
+        "temp_coeff_voc": -0.21,
+        "fill_factor": 0.43,
+        "category": "IBC Ultra Premium"
+    },
+    "Oxford PV 550W Perovskite": {
+        "efficiency": 29.5,
+        "voc": 53.5,
+        "isc": 12.5,
+        "pmax": 550,
+        "temp_coeff_voc": -0.20,
+        "fill_factor": 0.55,
+        "category": "Future Tech"
+    },
+    "LONGi 530W Silicon-Perovskite": {
+        "efficiency": 28.8,
+        "voc": 53.0,
+        "isc": 12.4,
+        "pmax": 530,
+        "temp_coeff_voc": -0.21,
+        "fill_factor": 0.52,
+        "category": "Future Tech"
+    },
+    "First Solar 460W CdTe Thin Film": {
+        "efficiency": 18.5,
+        "voc": 48.5,
+        "isc": 14.5,
+        "pmax": 460,
+        "temp_coeff_voc": -0.25,
+        "fill_factor": 0.22,
+        "category": "Thin Film Low Cost"
+    },
+    "Solar Frontier 170W CIGS": {
+        "efficiency": 17.8,
+        "voc": 47.5,
+        "isc": 13.8,
+        "pmax": 170,
+        "temp_coeff_voc": -0.28,
+        "fill_factor": 0.20,
+        "category": "CIGS Thin Film"
+    },
+    "QCells 415W Q.PEAK DUO": {
+        "efficiency": 21.0,
+        "voc": 49.2,
+        "isc": 13.5,
+        "pmax": 415,
+        "temp_coeff_voc": -0.35,
+        "fill_factor": 0.26,
+        "category": "QCells Standard"
+    },
+    "QCells 480W Q.TRON": {
+        "efficiency": 22.8,
+        "voc": 50.3,
+        "isc": 14.2,
+        "pmax": 480,
+        "temp_coeff_voc": -0
  
 battery_db = {
     "LiFePO4 LFP": [94, 6000, 180, 2.0, 48, "Cobalt Free"],
