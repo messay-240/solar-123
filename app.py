@@ -607,7 +607,7 @@ with st.expander("🔋 Battery & Load"):
     net_metering = st.checkbox("Net Metering", value=True)
  
 with st.expander("⚙️ Advanced Physics Config"):
-    panel_w_adv = st.number_input("Unit Panel Power (W) [Advanced]", 200, 1000, int(p_eff * 2), 5)
+    panel_w_adv = st.number_input("Unit Panel Power (W) [Advanced]", 2, 1000, int(p_eff * 2), 5)
     system_age = st.slider("System Age (Years)", 0, 25, 1)
     annual_degrad = st.number_input("Annual Degradation %", 0.1, 2.0, 0.5, 0.1)
     soiling_adv = st.slider("Soiling % [Advanced]", 0.0, 20.0, 3.5, 0.5)
