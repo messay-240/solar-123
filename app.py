@@ -680,7 +680,7 @@ st.divider()
 tabs = st.tabs([
     "📊 Energy", "🔧 Technical", "🔌 Inverter", "🔋 Battery", "⚡ Electrical",
     "💰 Financial", "🌿 Eco", "🛡️ Ethics", "📈 Net Metering", "🤖 AI Diagnosis",
-     "🏗️ Structure", "⚙️ Protection", "📡 Physics Engine",
+    "⚙️ Protection", "📡 Physics Engine",
     "📊 Storage Matrix", "📄 Export",
 ])
  
