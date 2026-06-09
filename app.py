@@ -680,7 +680,7 @@ st.divider()
 tabs = st.tabs([
     "📊 Energy", "🔧 Technical", "🔌 Inverter", "🔋 Battery", "⚡ Electrical",
     "💰 Financial", "🌿 Eco", "🛡️ Ethics", "📈 Net Metering", "🤖 AI Diagnosis",
-    "🌤️ Weather", "🏗️ Structure", "⚙️ Protection", "📡 Physics Engine",
+     "🏗️ Structure", "⚙️ Protection", "📡 Physics Engine",
     "📊 Storage Matrix", "📄 Export",
 ])
  
@@ -842,62 +842,6 @@ Time: {dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 - Financial Export: {fin_report['Export_Credit']} credits/day
 ========================================================================
 """, height=200)
- 
-# Tab 10: Weather
-with tabs[10]:
-    st.markdown("<span class='info-label'>WEATHER & WIND ANALYSIS</span>", unsafe_allow_html=True)
- 
-    if use_live_weather and password == LIVE_PASSWORD:
-        week_weather, _ = get_7day_weather(lat, lon)
-        if week_weather:
-            st.success(f"✅ LIVE CONNECTED: {location_name}")
-            col_map, col_data = st.columns([1, 1])
-            with col_map:
-                if FOLIUM_ENABLED:
-                    import folium
-                    from streamlit_folium import st_folium
-                    m = folium.Map(location=[lat, lon], zoom_start=10)
-                    folium.Marker([lat, lon], popup=location_name,
-                                  icon=folium.Icon(color='red', icon='bolt')).add_to(m)
-                    st_folium(m, height=350, width=400, key=f"map_{lat}_{lon}")
-                else:
-                    st.info(f"📍 {location_name} | Lat: {lat:.4f}, Lon: {lon:.4f}")
-            with col_data:
-                st.metric("Today Wind", f"{week_weather[0]['wind_max']:.1f} km/h")
-                st.metric("Today Temp Max", f"{week_weather[0]['temp_max']:.1f}°C")
-                st.metric("Today Temp Min", f"{week_weather[0]['temp_min']:.1f}°C")
- 
-            dates = [w['date'][5:] for w in week_weather]
-            fig_w = go.Figure()
-            fig_w.add_trace(go.Bar(x=dates, y=[w['temp_max'] for w in week_weather], name="Max °C", marker_color='#ef4444'))
-            fig_w.add_trace(go.Bar(x=dates, y=[w['temp_min'] for w in week_weather], name="Min °C", marker_color='#3b82f6'))
-            fig_w.add_trace(go.Scatter(x=dates, y=[w['wind_max'] for w in week_weather], name="Wind km/h",
-                                       yaxis='y2', line=dict(color='#f59e0b', width=3)))
-            fig_w.update_layout(title="7-Day Weather Forecast", yaxis=dict(title="Temperature °C"),
-                                 yaxis2=dict(title="Wind km/h", overlaying='y', side='right'),
-                                 height=400, barmode='group', plot_bgcolor='rgba(255,255,255,0.8)')
-            st.plotly_chart(fig_w, use_container_width=True)
-        else:
-            st.error("⚠️ Weather API offline. Refresh in 2 minutes.")
-    elif use_live_weather and password != LIVE_PASSWORD:
-        st.error("❌ Incorrect password.")
-    else:
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Location", location_name)
-            st.metric("Cloud Cover", f"{cloud_pct}%")
-            st.metric("Wind Speed", f"{wind:.1f} km/h")
-            st.metric("Daily Yield (DB)", f"{daily_yield:.1f} kWh")
-        with col2:
-            if wind > 80:
-                st.markdown(f"<div class='wind-alert'>🔴 EXTREME: >80 km/h - Structure damage risk!</div>", unsafe_allow_html=True)
-                st.write("• Use hurricane-rated mounting")
-                st.write("• Reduce tilt to <15°")
-            elif wind > 50:
-                st.warning(f"🟠 HIGH: {wind:.0f} km/h - Cross bracing required")
-            else:
-                st.markdown(f"<div class='safe-alert'>🟢 SAFE: {wind:.1f} km/h - Wind OK</div>", unsafe_allow_html=True)
-        st.info("💡 Enable Live Weather in sidebar for 7-day forecast & map.")
  
 # Tab 11: Structure
 with tabs[11]:
